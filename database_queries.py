@@ -4,6 +4,8 @@ import sqlite3
 
 def create_database_connection():
     """
+    this function will create a database connection
+    that can be used
     :returns: connection, file name
     """
     index = 1
@@ -79,3 +81,10 @@ def get_all_rows(connection):
     cursor = connection.cursor()
     cursor.execute(sql_query)
     return cursor.fetchall()
+
+
+def get_count_of_rows(connection):
+    sql_query = "SELECT COUNT(1)"
+    cursor = connection.cursor()
+    cursor.execute(sql_query)
+    return cursor.fetchall()[0][0]
